@@ -1,0 +1,29 @@
+-----------Exception Details on  14-04-2024 12:45:06 PM-----------------
+-------------------------------------------------------------------------------------
+Log Written Date: 14-04-2024 12:45:06 PM
+Error Line No : line 53
+Error Message: FormatException
+Exception Type: System.FormatException
+StackTrace: Input string was not in a correct format.   at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseInt64(String value, NumberStyles options, NumberFormatInfo numfmt)
+   at System.Int64.Parse(String s)
+   at ShaApplication.AppForms.ControlPanel.registerPage.GetUserDetails() in C:\Users\muthu\OneDrive\Documents\Visual Studio 2015\Projects\ShaApplication\ShaApplication\AppForms\ControlPanel\registerPage.aspx.cs:line 88
+   at ShaApplication.AppForms.ControlPanel.registerPage.SaveRegisterDetails(Object sender, EventArgs e) in C:\Users\muthu\OneDrive\Documents\Visual Studio 2015\Projects\ShaApplication\ShaApplication\AppForms\ControlPanel\registerPage.aspx.cs:line 53
+--------------------------------*End*------------------------------------------
+-----------Exception Details on  14-04-2024 01:28:25 PM-----------------
+-------------------------------------------------------------------------------------
+Log Written Date: 14-04-2024 01:28:25 PM
+StackTrace: Invalid column name 'Company'.
+Invalid column name 'sum_isactive'.
+Invalid column name 'sum_created_by'.
+Invalid column name 'sum_created_date'.   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at SHA.Data.Utility.DBHelper.ExecuteNonQuery(String query, List`1 paramList, String& msg) in C:\Users\muthu\OneDrive\Documents\Visual Studio 2015\Projects\ShaApplication\SHA.Data\Utility\DBHelper.cs:line 98
+--------------------------------*End*------------------------------------------

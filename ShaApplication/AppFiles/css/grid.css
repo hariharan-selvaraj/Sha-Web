@@ -1,0 +1,189 @@
+﻿.custom_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.custom_inner_container {
+    background-color: #fff;
+    width: 100%;
+    height: 97%;
+}
+
+.pagename_header_Container {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    width: 100%;
+    justify-content: center;
+}
+
+.page_head {
+    font-size: 19px;
+    font-weight: bold;
+    color: #000;
+    margin: 4px 0px;
+}
+
+.grid_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    gap: 10px;
+}
+
+.tbl_head_div {
+    width: 97%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.action_btn_container {
+    height: 36px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.grid_btn_headrow {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 1%;
+    padding: 5px;
+    width: 100%;
+}
+
+.btn-add,
+.btn_edit,
+.btn_delete {
+    border-radius: 5px;
+    border: none;
+    padding: 4px;
+    min-width: 10%;
+}
+
+.actions_btn {
+    border-radius: 5px;
+    border: none;
+    padding: 4px 10px;
+    width: 12%;
+}
+
+.grid_haction_btn {
+    display: flex;
+    align-items: center;
+}
+
+.grid_haction_icon {
+    margin: 0 4%;
+}
+
+.btn_add {
+    background-color: #00bc6d;
+    color: #ffffff;
+}
+
+.btn_edit {
+    background-color: #3699ff;
+    color: #ffffff;
+}
+
+.btn_delete {
+    background-color: #f64e60;
+    color: #ffffff;
+}
+
+/*.grid_head{
+    width:100%;
+    margin-left:40px;
+}
+
+.grid_view{
+    width:97%;
+    table-layout: fixed;
+}
+
+.grid_view tbody {
+    display: block;
+    width: 100%;
+    overflow-y: auto;
+    height: auto;
+}
+
+.grid_view tr:first-child {
+    border: 1px solid #000000;
+    color: #000;
+    background-color: #ccdce0;
+    text-align: center;
+    padding: 10px;
+    display: flex;
+}
+
+.grid_view tr:first-child th {
+    display: block;
+    min-height: 30px !important;
+    max-height: 50px !important;
+}*/
+
+/*.grid_view tr:not(:first-child):not(.exclude) {
+    min-height: 30px !important;
+    max-height: 50px !important;
+}*/
+
+/*.grid_view th,
+.grid_view td {
+    padding: 5px;
+    text-align: center;
+}
+
+.grid_view td {
+    border: 1px solid #000000;
+}*/
+
+.grid_head {
+    overflow-x: auto;
+    width: 97%;
+}
+
+.grid_view {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+    .grid_view th,
+    .grid_view td {
+        border: 1px solid #a0a0a0;
+        padding: 8px;
+        text-align: center;
+        font-size: clamp(12px, 4vw, 16px);
+    }
+
+    .grid_view tr:first-child {
+        color: #000;
+        background-color: #ccdce0;
+    }
+
+.selected_row {
+    background-color: #d1cacadb;
+}
+
+.Holiday_Row {
+    background-color: yellow;
+}
+
+.clickable_row {
+    cursor: pointer;
+}
+
+.center_text {
+    text-align: center;
+}
+/*.grid_view tr:not(:first-child):hover {
+    background-color: #000;
+    cursor: pointer;
+}*/

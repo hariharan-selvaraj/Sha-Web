@@ -1,0 +1,18 @@
+-----------Exception Details on  05-05-2024 12:57:23 AM-----------------
+-------------------------------------------------------------------------------------
+Log Written Date: 05-05-2024 12:57:23 AM
+Error Line No : line 23
+Error Message: ArgumentException
+Exception Type: System.ArgumentException
+StackTrace: Keyword not supported: 'initiad:\workspace\aspdotnet\sha\sha.bll\appconfig.csl catalog'.   at System.Data.Common.DbConnectionOptions.ParseInternal(Hashtable parsetable, String connectionString, Boolean buildChain, Hashtable synonyms, Boolean firstKey)
+   at System.Data.Common.DbConnectionOptions..ctor(String connectionString, Hashtable synonyms, Boolean useOdbcRules)
+   at System.Data.SqlClient.SqlConnectionString..ctor(String connectionString)
+   at System.Data.SqlClient.SqlConnectionFactory.CreateConnectionOptions(String connectionString, DbConnectionOptions previous)
+   at System.Data.ProviderBase.DbConnectionFactory.GetConnectionPoolGroup(DbConnectionPoolKey key, DbConnectionPoolGroupOptions poolOptions, DbConnectionOptions& userConnectionOptions)
+   at System.Data.SqlClient.SqlConnection.ConnectionString_Set(DbConnectionPoolKey key)
+   at System.Data.SqlClient.SqlConnection.set_ConnectionString(String value)
+   at System.Data.SqlClient.SqlConnection..ctor(String connectionString, SqlCredential credential)
+   at SHA.Data.Utility.DBConnector.OpenConnection() in D:\WorkSpace\ASPDOTNET\SHA\SHA.Data\Utility\DBConnector..cs:line 22
+   at SHA.Data.Utility.DBConnector..ctor(String sPName) in D:\WorkSpace\ASPDOTNET\SHA\SHA.Data\Utility\DBConnector..cs:line 15
+   at SHA.BLL.Service.LogFileService.LogError(Int64 userId, String activity, String url, Exception ex, String modelJson) in D:\WorkSpace\ASPDOTNET\SHA\SHA.BLL\Service\LogFileService.cs:line 23
+--------------------------------*End*------------------------------------------

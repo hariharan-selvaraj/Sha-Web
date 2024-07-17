@@ -1,0 +1,269 @@
+﻿
+.popup_outer_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #969191b3;
+    z-index: 1;
+}
+
+.popup_inner_container {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    width: 60%;
+    box-shadow: 3px 4px 8px 3px #f6f3f333;
+}
+
+.div_container {
+    margin: 20px 10px 20px 10px;
+    width:100%;
+}
+
+.popup_header {
+    width: 100%;
+    height: 50px;
+    background-color: #99ffffde;
+    border-radius: 5px 5px 0px 0px;
+}
+
+.popup_header_title {
+    display: inline-block;
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-left: 10px;
+    color: #000;
+}
+
+.popup_header_close_icon {
+    float: right;
+    width: 25px;
+    height: 25px;
+    margin-top: 12px;
+    margin-right: 10px;
+    text-align: center;
+    color: #ffffff;
+    background: #ff0000;
+    line-height: 25px;
+    border-radius: 30px;
+    cursor: pointer;
+}
+
+    .popup_header_close_icon:hover,
+    .menu-task:hover {
+        text-decoration: none;
+    }
+
+.popup_body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+    background-color: #fff;
+}
+
+.mandatory {
+    color: red;
+    padding-left: 10px;
+}
+
+/*.popup-form-element {
+    margin-top: 10px;
+}*/
+
+.popup_footer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    align-items: center;
+    height: 50px;
+    background-color: #99ffffde;
+    border-radius: 0px 0px 5px 5px;
+}
+
+.popup-btn {
+    height: 30px;
+    width: 100px;
+    margin-right: 10px;
+    border-radius: 3px;
+    color: white;
+    border: none;
+}
+
+.popup-btn-save {
+    background-color: #00bc6d;
+}
+
+.popup-btn-cancel {
+    background-color: #f64e60;
+}
+
+    .popup-btn-save:hover,
+    .popup-btn-cancel:hover {
+        color: black;
+    }
+
+
+.confirm_popup_inner_container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #f2f2f2;
+    padding: 20px;
+    box-shadow: 0px 0px 10px #00000080;
+    z-index: 2;
+}
+
+.confirm_popup_action_container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.btn_ok {
+    background-color: #ff4c4c;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+.btn_cancel {
+    background-color: #ccc;
+    color: black;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+/*Form scroll*/
+.scroll_container {
+    overflow-y: auto;
+    /* scrollbar-width: thin; */
+}
+
+    .scroll_container::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    .scroll_container::-webkit-scrollbar-thumb {
+        border-radius: 15px;
+    }
+
+/*End of Form scroll*/
+
+/*Currency Symbol*/
+.currency {
+    padding: 0 !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/*End of Currency Symbol*/
+
+/*left align style*/
+#left_align {
+    padding: 0 30px;
+}
+/*left align style*/
+
+/*Show total & balance amount in popup header*/
+.header_show_amount {
+    padding: 0 10px;
+}
+/*End of Show total & balance amount in popup header*/
+/*Menu Style*/
+.menu-item-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+    .menu-item-container .form-check-input {
+        flex: 1 0 30%;
+        margin-bottom: 10px;
+    }
+
+.mi_check_box_div table {
+    border-collapse: separate;
+    border-spacing: 0 12px;
+    border: 1px solid #00f3ff;
+    border-radius: 9px;
+    padding: 5px;
+}
+
+.mi_check_box_div label {
+    margin-left: 5px;
+}
+
+.mi_check_box_div {
+    background-color: aliceblue !important;
+    padding: 10px;
+}
+/*end of Menu Style*/
+
+.show_uploaded_div {
+    display: flex;
+    margin: -3.3% 0px 0px 25%;
+}
+
+.UpdatePanelRow {
+    margin-left: 0px;
+    gap: 2%;
+}
+
+.upload_btn {
+    background-color: #138496;
+    border-radius: 7px;
+    border: none;
+    margin-top: 0px;
+}
+
+.ImageViewPopUp {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.popup-content {
+    margin: 12% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 70%;
+    height: 50%;
+    background-color:white;
+}
+
+.close {
+    color: #fffcfc;
+    float: right;
+    width: 30px;
+    border-radius: 5px;
+    text-align: center;
+    background: #ee0000fc;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+ .close:hover,
+ .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+ }

@@ -1,0 +1,218 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MainLayout.master.cs" Inherits="ShaApplication.Master.MainLayout" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no" />
+    <link href="../Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/AppFiles/Logo/favicon.png" rel="icon" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation-unobtrusive@3.2.11/jquery.validate.unobtrusive.min.js"></script>
+    <script src="../../scripts/bootstrap.bundle.min.js"></script>
+    <script src="../../scripts/bootstrap.min.js"></script>
+    <link href="../AppFiles/css/welcomePage.css" type="text/css" asp-append-version="true" rel="stylesheet" media="screen" />
+    <link href="../AppFiles/css/common.css" type="text/css" asp-append-version="true" rel="stylesheet" media="screen" />
+    <link href="../AppFiles/css/popupCommon.css" type="text/css" asp-append-version="true" rel="stylesheet" media="screen" />
+    <link href="../AppFiles/css/grid.css" type="text/css" asp-append-version="true" rel="stylesheet" media="screen" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/fontawesome.min.css"
+        integrity="sha512-siarrzI1u3pCqFG2LEzi87McrBmq6Tp7juVsdmGY1Dr8Saw+ZBAzDzrGwX3vgxX1NkioYNCFOVC0GpDPss10zQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Sha Application</title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style>
+        
+    </style>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            fnDisableBtn();
+        });
+        function fnDisableBtn() {
+            $(".btn_edit").attr("disabled", true);
+            $(".btn_edit").css({ "background-color": "#ccdce0", "pointer-events": "none" });
+            $(".btn_delete").attr("disabled", true);
+            $(".btn_delete").css({ "background-color": "#ccdce0", "pointer-events": "none" });
+        }
+        function fnEnableBtn() {
+            $(".btn_edit").prop("disabled", false);
+            $(".btn_edit").css({ "background-color": "#3699ff", "pointer-events": "auto" });
+            $(".btn_delete").prop("disabled", false);
+            $(".btn_delete").css({ "background-color": "#f64e60", "pointer-events": "auto" });
+        }
+        function fnGenerateListBody(data) {
+            data = JSON.parse(data);
+            var hierarchicalData = convertToHierarchy(data);
+            buildTree($("#menuContainer"), hierarchicalData);
+            function buildTree(parent, items) {
+                var ul = $('<ul>');
+                items.forEach(function (item) {
+                    var $li = $('<li>').attr("data-li-id", item.MenuItemId).attr("title", item.MenuItemName);
+                    $li.addClass("menu-task task_icon");
+                    if (item.TaskURL) {
+                        $li.attr("data-url", item.TaskURL);
+                        $li.on("click", function (event) {
+                            window.location.href = $(this).attr("data-url");
+                        });
+                    }
+                    let $i = $("<i>").addClass("fa-solid fa-fw menu-icon").addClass(item.MenuItemIcon);
+                    let $s = $("<span>").addClass("menu-name-show").text(item.MenuItemName);
+                    $li.append($i, $s);
+                    if (item.children && item.children.length > 0) {
+                        let $dwi = $("<i>");
+                        $li.append($dwi);
+                        let $childList = $("<ul>");
+                        $li.append($childList);
+                        buildTree($childList, item.children);
+                    }
+                    ul.append($li);
+                });
+                parent.append(ul);
+            }
+            function convertToHierarchy(data) {
+                var tree = [];
+                var map = {};
+                data.forEach(function (item) {
+                    map[item.MenuItemId] = item;
+                    item.children = [];
+                });
+                data.forEach(function (item) {
+                    if (item.ParentId !== 0) {
+                        map[item.ParentId].children.push(item);
+                    } else {
+                        tree.push(item);
+                    }
+                });
+                return tree;
+            }
+        }
+        function formatDecimal(element) {
+            let value = parseFloat(element.value);
+            if (!isNaN(value)) {
+                element.value = value.toFixed(2);
+            }
+        }
+    </script>
+</head>
+<body style="min-height: 100vh">
+    <form id="form1" runat="server">
+        <div class="row" style="width: 100%; margin: 0;">
+            <div class="col-4 col-sm-2 center-align">
+                <div class="row">
+                    <div id="icon_conatiner" class="col-sm-4" style="padding: 0px;">
+                        <div class="icon-handburger-container">
+                            <i class="fa-2x fa-solid fa-bars" id='brc-icon'></i>
+                        </div>
+                    </div>
+                    <div class="client-icon-container col-8 col-sm-8" style="padding: 0px;">
+                        <a href="#" class="navbar-brand font-weight-bold text-secondary center-align" style="width: 160%">
+                            <img class="flaticon-043-teddy-bear center-align header_image" alt="" src="<%: Page.ResolveUrl("~/AppFiles/Logo/ShaLogo.png") %>" style="width: 40%; height: 40%" />
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-5 col-sm-8">
+                <div id="page-header" class="pg-header">
+                    <div class="row">
+                        <span class="text-primary" style="font-size: 35px;">SHA TECHNO SOLUTION</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-3 col-sm-2 center-align">
+                <asp:Button type="button" runat="server" ID="Register" CssClass="btn btn-primary px-4" Text="LogOut" OnClick="btnLogout_Click" CausesValidation="false" UseSubmitBehavior="false"/>
+            </div>
+        </div>
+        <!-- Navbar End -->
+        <!-- Header Start -->
+        <div class="container-fluid bg-primary">
+            <div class="d-flex flex-column align-items-center justify-content-center">
+                <h3 class="display-3 font-weight-bold text-white"></h3>
+            </div>
+        </div>
+        <!-- Header End -->
+
+        <!--Main Content-->
+        <div class="row" style="width: 100%">
+            <div id="conentContainer" class="conent-container col-12 col-sm-12" style="padding: 0px;">
+                <div class="row">
+                    <div class="col-12 col-sm-12" style="padding: 0px;">
+                        <div class="row" style="width: 100%; margin: 0">
+                            <div id="menuContainer" class="menu-container scroll_container col-2 col-sm-2"
+                                style="padding: 0px;">
+                            </div>
+                            <div id="mainConentContainer" class="main-content-container scroll_container col-10 col-sm-10"
+                                style="padding: 0px;">
+                                <asp:ScriptManager ID="ScriptManager1" runat="server" ScriptMode="Release"></asp:ScriptManager>
+                                <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                                    <ContentTemplate>
+                                        <asp:ContentPlaceHolder ID="Content" runat="server">
+                                        </asp:ContentPlaceHolder>
+                                    </ContentTemplate>
+                                </asp:UpdatePanel>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Main Content-->
+
+        <!-- Footer Start -->
+        <div class="container-fluid bg-primary mb-5">
+            <div class="d-flex flex-column align-items-center justify-content-center">
+                <p class="m-0 text-center text-white footer-para">
+                    ©<a class="text-footer font-weight-bold" href="#">SHA TECHNO SOLUTION PTE. LTD</a>. All Rights Reserved. Designed by
+                   
+                    <a class="text-footer font-weight-bold" href="#">SHA</a>
+                </p>
+            </div>
+        </div>
+        <!-- Footer End -->
+    </form>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            fnInitPageSetup(true);
+        });
+
+        function fnInitPageSetup(isOpen) {
+            let doc_width = $(window).width();
+            let doc_height = $(window).height();
+            let contentHeight = doc_height - 70 - 31 - 22 - 2;
+            $("#conentContainer").height(contentHeight + "px");
+            $(".menu-container").height(contentHeight + "px");
+            $(".main-content-container").height(contentHeight + "px");
+            if (isOpen) {
+                $("#menuContainer").removeClass("col-1 col-sm-1").addClass("col-2 col-sm-2");
+                $("#mainConentContainer").removeClass("col-11 col-sm-11").addClass("col-10 col-sm-10");
+                $("#menuContainer").css({ "min-width": "18%", "max-width": "18%" });
+                $("#mainConentContainer").css({ "min-width": "82%", "max-width": "82%" });
+            }
+            else {
+                $("#menuContainer").removeClass("col-2 col-sm-2").addClass("col-1 col-sm-1");
+                $("#mainConentContainer").removeClass("col-10 col-sm-10").addClass("col-11 col-sm-11");
+                $("#menuContainer").css({ "min-width": "7%", "max-width": "7%" });
+                $("#mainConentContainer").css({ "min-width": "93%", "max-width": "93%" });
+            }
+        }
+    </script>
+    <script type="text/javascript">
+        $(".icon-handburger-container").on("click", function () {
+            if ($("#brc-icon").hasClass("fa-bars")) {
+                fnInitPageSetup(false);
+                $("#brc-icon").removeClass("fa-bars").addClass("fa-list-ul");
+                $(".menu-name-show").removeClass("menu-name-show").addClass("menu-name-hide");
+            } else {
+                fnInitPageSetup(true);
+                $("#brc-icon").removeClass("fa-list-ul").addClass("fa-bars");
+                $(".menu-name-hide").removeClass("menu-name-hide").addClass("menu-name-show");
+            }
+        });
+    </script>
+</body>
+</html>

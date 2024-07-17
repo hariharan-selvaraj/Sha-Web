@@ -1,0 +1,52 @@
+﻿body {
+    height: 100vh;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.center-align {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-para {
+    padding: 0.6rem;
+}
+
+.register_head {
+    text-align: center;
+}
+
+.mandatory {
+    color: red;
+    padding-left: 10px;
+}
+
+.error_msg_div {
+    text-align: center;
+    height: 2.25rem;
+    color: red;
+}
+
+.register_div {
+    padding: 0.5rem;
+}
+
+.footer_container {
+    padding: 0;
+}
+
+.register-div-btns {
+    gap: 15%;
+}
+
+.login_padding {
+    padding: 3.6rem;
+}
+
+.register_padding {
+    padding: 3.6rem;
+}

@@ -1,0 +1,84 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="LoginLayout.master.cs" Inherits="ShaApplication.Master.LoginLayout" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no" />
+    <link href="../Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/AppFiles/Logo/favicon.png" rel="icon" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="../../scripts/bootstrap.bundle.min.js"></script>
+    <script src="../../scripts/bootstrap.min.js"></script>
+    <link href="../AppFiles/css/common.css" asp-append-version="true" rel="stylesheet" />
+    <link href="../AppFiles/css/login.css" asp-append-version="true" rel="stylesheet" />
+    <link href="../AppFiles/css/popupCommon.css" type="text/css" asp-append-version="true" rel="stylesheet" media="screen" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet" />
+    <title>Sha Application</title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <script>
+        $(document).ready(function () {
+            $('.reg_btn').show();
+            $('.back_btn').hide();
+        });
+    </script>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div class="row" style="width: 100%;">
+            <div class="col-8 col-sm-8">
+                <a href="#" class="navbar-brand font-weight-bold text-secondary" style="font-size: 50px;">
+                    <img class="flaticon-043-teddy-bear" alt="" src="<%: Page.ResolveUrl("~/AppFiles/Logo/ShaLogo.png") %>" style="width: 40%; height: 40%" />
+                </a>
+            </div>
+            <div class="col-4 col-sm-4 center-align">
+                <asp:Button type="button" runat="server" ID="Register" CssClass="btn btn-primary px-4 reg_btn" Text="Register" OnClick="btnRegister_Click" CausesValidation="false" UseSubmitBehavior="false" />
+                <asp:Button type="button" runat="server" ID="Back" CssClass="btn btn-primary px-4 back_btn" Text="Back" OnClick="btnBack_Click" CausesValidation="false" UseSubmitBehavior="false" />
+            </div>
+        </div>
+        <!-- Navbar End -->
+        <!-- Header Start -->
+        <div class="container-fluid bg-primary">
+            <div class="d-flex flex-column align-items-center justify-content-center">
+                <h3 class="display-3 font-weight-bold text-white"></h3>
+            </div>
+        </div>
+        <!-- Header End -->
+        <div id="mainContent">
+            <asp:ScriptManager runat="server"></asp:ScriptManager>
+            <asp:UpdatePanel runat="server">
+                <ContentTemplate>
+                    <asp:ContentPlaceHolder ID="login" runat="server">
+                    </asp:ContentPlaceHolder>
+                </ContentTemplate>
+            </asp:UpdatePanel>
+        </div>
+        <!-- Footer Start -->
+        <div class="container-fluid bg-primary footer_container">
+            <div class="d-flex flex-column align-items-center justify-content-center">
+                <p class="m-0 text-center text-white footer-para">
+                    ©<a class="text-footer font-weight-bold" href="#">SHA TECHNO SOLUTION PTE. LTD</a>. All Rights Reserved. Designed by
+                   
+                    <a class="text-footer font-weight-bold" href="#">SHA</a>
+                </p>
+            </div>
+        </div>
+        <!-- Footer End -->
+    </form>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            fnInitPageSetup();
+        });
+
+        function fnInitPageSetup() {
+            let doc_height = $(window).height();
+            let header_height = 110;
+            let footer_height = 43;
+            let contentHeight = doc_height - header_height - footer_height - 9;
+            $("#mainContent").css({ "min-height": contentHeight + "px" });
+        }
+    </script>
+</body>
+</html>
